@@ -8,7 +8,7 @@ Shoes.app :title => "My Amazing Calculator", :width => 240, :height => 340 do
         button op do         
           case op
           when ('0'..'9')
-            append(op)
+            append(op + '.0')
           when "="
             eval_expression
           when "C"

@@ -4,7 +4,7 @@ Shoes.app :title => "My Amazing Calculator", :width => 240, :height => 240 do
     @output = edit_line
     
     flow do
-      %w(7 8 9 4 5 6 1 2 3 0 + / * -).each do |op|      
+      %W(7 8 9 4 5 6 1 2 3 0 + / * - C 2\u207F =).each do |op|      
         button op do         
           case op
           when ('0'..'9')
@@ -13,6 +13,10 @@ Shoes.app :title => "My Amazing Calculator", :width => 240, :height => 240 do
             eval_expression
           when "C"
             clear_output
+          when "2\u207F"
+            power_of_two
+          else 
+            append(op)
           end
         end
       end
@@ -40,6 +44,13 @@ Shoes.app :title => "My Amazing Calculator", :width => 240, :height => 240 do
   def clear_output
     @output.text = ""
     @input = nil
+  end
+
+  def power_of_two
+    @input = eval(@input)
+    @input = 2**@input
+    @input = @input.to_s
+    @output.text = @input
   end
 
 end

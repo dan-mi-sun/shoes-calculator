@@ -1,10 +1,10 @@
 Shoes.app :title => "My Amazing Calculator", :width => 240, :height => 340 do
-  background black, width: 240, height: 340
-  stack :margin => 20, width: 195 do
+  background black, :width => 240, :height => 340
+  stack :margin => 20, :width => 195 do
     @output = edit_line
     
     flow do
-      %W(7 8 9 4 5 6 1 2 3 0 + / * - C 2\u207F \u221A log\u2082 =).each do |op|      
+      %W(7 8 9 4 5 6 1 2 3 0 + \u00F7 * - C 2\u207F \u221A log\u2082 =).each do |op|      
         button op do         
           case op
           when ('0'..'9')
@@ -19,6 +19,8 @@ Shoes.app :title => "My Amazing Calculator", :width => 240, :height => 340 do
             square_root
           when "log\u2082"
             log_base_2
+          when "\u00F7"
+            append "/"
           else 
             append(op)
           end

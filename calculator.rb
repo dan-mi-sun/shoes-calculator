@@ -1,5 +1,5 @@
-Shoes.app :title => "My Amazing Calculator", :width => 240, :height => 240 do
-  background black, width: 240, height: 240
+Shoes.app :title => "My Amazing Calculator", :width => 240, :height => 340 do
+  background black, width: 240, height: 340
   stack :margin => 20, width: 195 do
     @output = edit_line
     

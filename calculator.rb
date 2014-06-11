@@ -9,6 +9,10 @@ Shoes.app :title => "My Amazing Calculator", :width => 240, :height => 240 do
           append op
         end
       end
+
+      button "C" do
+        clear_output
+      end
       
       button "=" do
         eval_expression
@@ -32,6 +36,11 @@ Shoes.app :title => "My Amazing Calculator", :width => 240, :height => 240 do
   def eval_expression
     @input = eval(@input).to_s
     @output.text = @input
+  end
+
+  def clear_output
+    @output.text = ""
+    @input = nil
   end
   
 end
